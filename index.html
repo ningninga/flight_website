@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--https://www.swiper.com.cn/demo/patagonia/-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>The cheapest airline tickets</title>
+        <link rel="stylesheet" href="./css/swiper.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/sign-page.css">
+<!--        <link rel="stylesheet" href="./antd/antd.min.css">-->
+    </head>
+
+    <body>
+        <header>
+            <div class="logo-background">
+                <a href='index.html'>
+                    <img class="logo" src="./image/logo.png" />
+                </a>
+
+            </div>
+            <div class="navigation-bar">
+                <a id="sign-up" onclick="signUp()">Sign up</a>
+            </div>
+            <div class="navigation-bar">
+                <a id="sign-in" onclick="signIn()">Sign in</a>
+            </div>
+            <div class="navigation-bar">
+                <a href="http://www.baidu.com">About us</a>
+            </div>
+        </header>
+        <!-- Swiper -->
+        <div class="swiper-container swiper-container-horizontal">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide-1 swiper-slide-active" data-swiper-slide-index="0">
+                    <div class="txtCenter">
+                        <span class="txt-white">WHT&nbsp;&nbsp;&nbsp;&nbsp;NOT&nbsp;&nbsp;&nbsp;&nbsp;FLY?</span></div>
+                    <div class="full preload middle">
+                        <img class="swiper-lazy swiper-lazy-loaded" src="./image/01.jpg"></div>
+                </div>
+                <div class="swiper-slide slide-2" data-swiper-slide-index="1">
+                    <div class="homepage-left100">
+                        <span class="txt">Bring
+                            <br>Your
+                            <br>Luggage</span></div>
+                    <div class="full preload middle">
+                        <img data-src="./image/02.jpg" class="swiper-lazy">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-3" data-swiper-slide-index="2">
+                    <div class="txtCenter">
+                        <span class="txt">DO NOT
+                            <br>hesitate</span></div>
+                    <div class="full preload middle">
+                        <img data-src="./image/03.jpg" class="swiper-lazy">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-4" data-swiper-slide-index="3">
+                    <div class="whiteTxt">
+                        <span class="txt">Enjoy your travel
+                            <br>with the most affordable price.</span></div>
+                    <div class="full preload middle">
+                        <img data-src="./image/04.jpg" class="swiper-lazy">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="swiper-pagination swiper-pagination-bullets">
+                <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                <span class="swiper-pagination-bullet"></span>
+                <span class="swiper-pagination-bullet"></span>
+                <span class="swiper-pagination-bullet"></span>
+            </div>
+            <div class="swiper-button-prev swiper-button-white" tabindex="0" role="button" aria-label="Previous slide"></div>
+            <!--左箭头-->
+            <div class="swiper-button-next swiper-button-white" tabindex="0" role="button" aria-label="Next slide"></div>
+            <!--右箭头-->
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+        <div class="popBox">
+            <div class="pb">
+                <span class="clousx"></span>
+                <div class="p-box"></div>
+            </div>
+        </div>
+        <!--sign in 界面-->
+        <div id="sign-in-popup" style="display: none">
+            <h2>Sign In</h2>
+            <div class="input-info">
+                <input type="text" class="username" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="input-info">
+                <input type="password" class="password" placeholder="Password">
+            </div>
+            <div class="sign-page-button">
+                <a>Sign in</a>
+                <a onclick="closeSignPopUp()">Close</a>
+            </div>
+
+        </div>
+        <!--sign up 界面-->
+        <div id="sign-up-popup" style="display: none">
+            <h2>Sign Up</h2>
+            <div class="input-info">
+                <input type="text" class="firstName" placeholder="First Name" autocomplete="off">
+            </div>
+            <div class="input-info">
+                <input type="text" class="familyName" placeholder="Family Name" autocomplete="off">
+            </div>
+            <div class="input-info">
+                <input type="text" class="emailAddress" placeholder="Email Address" autocomplete="off">
+            </div>
+            <div class="input-info">
+                <input type="text" class="username" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="input-info">
+                <input type="password" class="password" placeholder="Password">
+            <div class="sign-page-button">
+                <a>Sign up</a>
+                <a onclick="closeSignPopUp()">Close</a>
+            </div>
+
+        </div>
+        </div>
+        <!--遮罩层-->
+        <div class="shadow" onclick="closeSignPopUp()"></div>
+
+
+        <footer>your footer</footer>
+
+
+        <!-- Swiper JS -->
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/swiper.min.js"></script>
+<!--        <script src="./antd/antd.min.js"></script>-->
+<!--        <script src="./js/react-dom.js"></script>-->
+        <!-- Initialize Swiper -->
+        <script>
+        var swiper = new Swiper('.swiper-container', {
+                loop: true,
+                lazy: {
+                    //loadPrevNext: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+            //0.625   5/8
+            function homeResize() {
+
+                WinHeight = $(window).height();
+                WinWidth = $(window).width();
+                fullBox = $(".swiper-slide .full");
+
+                if (WinWidth > 768) {
+                    if (WinWidth / WinHeight > 1.6) {
+                        fullBox.width("100%").height(WinWidth * 0.625).css({
+                            "position": 'absolute',
+                            "left": "0px",
+                            "top": (WinHeight - fullBox.height()) / 2 + "px"
+                        });
+                    } else {
+                        fullBox.width(WinHeight * 1.6).height("100%").css({
+                            "position": 'absolute',
+                            "left": "-" + (fullBox.width() - WinWidth) / 2 + "px",
+                            "top": "0px"
+                        });
+                    }
+                } else {
+                    fullBox.width("100%").height("auto").css({
+                        "position": 'static',
+                    });
+                }
+            }
+
+            homeResize();
+
+            $(window).resize(function() {
+                homeResize();
+            });
+        </script>
+        <script>
+
+            function signIn() {
+                $('#sign-in-popup').show();
+                $('.shadow').show();
+            }
+            function closeSignPopUp() {
+                $('#sign-in-popup').hide();
+                $('#sign-up-popup').hide();
+                $('.shadow').hide();
+            }
+            function signUp() {
+                $('#sign-up-popup').show();
+                $('.shadow').show();
+            }
+
+
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
