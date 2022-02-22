@@ -1,3 +1,9 @@
+.invalid-border {
+    border: 2px solid rgba(255,0,0,0.7)
+}
+.valid-border {
+    border: 2px solid rgba(255,255,255,0.7)
+}
 #sign-in-popup {
     height: 400px;
     width: 500px;
@@ -44,7 +50,7 @@
     display:none;
 }
 .input-info {
-    border: 2px solid rgba(255,255,255,0.7);
+
     width: 350px;
     height: 40px;
     margin: 6% auto;
@@ -60,6 +66,7 @@
     font-size: 20px;
     color: #fff;
     width: 350px;
+    box-sizing: border-box;
 }
 /* sign页面图标  */
 .username {
@@ -130,3 +137,11 @@
      :-ms-input-placeholder { /* Internet Explorer 10+ */
        color: rgba(255, 255, 255, 0.7);
      }
+ .invalid-email,
+ .invalid-first-name{
+    display: block;
+    height:36px;
+    margin: -30px 0 -36px 73px;
+    color: rgba(187,46,34, 1);
+    font-size: 16px;
+ }

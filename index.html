@@ -104,26 +104,33 @@
         <!--sign up 界面-->
         <div id="sign-up-popup" style="display: none">
             <h2>Sign Up</h2>
+            <!--    first name        -->
             <div class="input-info">
-                <input type="text" class="firstName" placeholder="First Name" autocomplete="off">
+                <input type="text" class="firstName" placeholder="First Name" autocomplete="off" onblur="checkFirstName()">
             </div>
+            <span class="invalid-first-name" style="display: none">The length of first name is at least 2 </span>
+            <!--    family name        -->
             <div class="input-info">
-                <input type="text" class="familyName" placeholder="Family Name" autocomplete="off">
+                <input type="text" class="familyName" placeholder="Family Name" autocomplete="off" onblur="checkFamilyName()">
             </div>
-            <div class="input-info">
-                <input type="text" class="emailAddress" placeholder="Email Address" autocomplete="off">
+            <span class="invalid-family-name" style="display: none">The length of family name is at least 2 </span>
+            <!--    email       -->
+            <div class="input-info valid-border" >
+                <input type="text" class="emailAddress" placeholder="Email Address" autocomplete="off" onBlur="checkEmail()">
             </div>
+            <span class="invalid-email" style="display: none">Invalid Email Address</span>
+            <!--   username         -->
             <div class="input-info">
-                <input type="text" class="username" placeholder="Username" autocomplete="off">
+                <input type="text" class="username" placeholder="Username" autocomplete="off" onblur="checkUsername()">
             </div>
+            <!--   password         -->
             <div class="input-info">
-                <input type="password" class="password" placeholder="Password">
+                <input type="password" class="password" placeholder="Password" onblur="checkPassword()">
+            </div>
             <div class="sign-page-button">
                 <a>Sign up</a>
                 <a onclick="closeSignPopUp()">Close</a>
             </div>
-
-        </div>
         </div>
         <!--遮罩层-->
         <div class="shadow" onclick="closeSignPopUp()"></div>
@@ -196,10 +203,37 @@
                 $('#sign-in-popup').hide();
                 $('#sign-up-popup').hide();
                 $('.shadow').hide();
+                $('.password').val("");
+
             }
             function signUp() {
                 $('#sign-up-popup').show();
                 $('.shadow').show();
+            }
+            function checkEmail() {
+                let emailAdd = $('.emailAddress').val();
+                if (emailAdd != ""){
+                    let　correctEmailAdd = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                    if (!(correctEmailAdd.test(emailAdd))) {
+                        $('.emailAddress').parent().attr('class', "input-info invalid-border");
+                        $('.invalid-email').show();
+                        return
+                    }
+                }
+                $('.invalid-email').hide();
+                $('.emailAddress').parent().attr('class', "input-info valid-border");
+            }
+            function checkFirstName() {
+                let firstName = $('.firstName').val();
+                if (firstName != ""){
+                    if (firstName.length < 2) {
+                        $('.invalid-first-name').show();
+                        $('.firstName').parent().css('border','2px solid rgba(255,0,0,0.7)');
+                        return
+                    }
+                }
+                $('.invalid-first-name').hide();
+                $('.firstName').parent().css('border','2px solid rgba(255,255,255,0.7)');
             }
 
 
