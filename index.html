@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./css/swiper.min.css">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/sign-page.css">
+        <link rel="stylesheet" href="./css/animate.css">
 <!--        <link rel="stylesheet" href="./antd/antd.min.css">-->
     </head>
 
@@ -137,15 +138,26 @@
         <!--遮罩层-->
         <div class="shadow" onclick="closeSignPopUp()"></div>
 
+        <div id="abc">
+            <div style="visibility: visible;-webkit-animation-duration: 1.75s; -moz-animation-duration: 1.75s;
+            animation-duration: 1.75s;-webkit-animation-delay: 0.50s; -moz-animation-delay: 0.50s; animation-delay: 0.50s;"
+                        class="stat wow fadeInUp animated animated">
+                        <div class="icon-top green-text">
+                            <i class="icon-man-people-streamline-user"></i>
+                        </div>
+                        <div class="stat-text">
+                            <h3 class="white-text green-border-bottom">1588</h3>
+                            <h6>访问</h6>
+                        </div>
+            </div>
 
+        </div>
         <footer>your footer</footer>
 
 
         <!-- Swiper JS -->
         <script src="./js/jquery.min.js"></script>
         <script src="./js/swiper.min.js"></script>
-<!--        <script src="./antd/antd.min.js"></script>-->
-<!--        <script src="./js/react-dom.js"></script>-->
         <!-- Initialize Swiper -->
         <script>
         var swiper = new Swiper('.swiper-container', {
