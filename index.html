@@ -89,10 +89,10 @@
         <!--sign in 界面-->
         <div id="sign-in-popup" style="display: none">
             <h2>Sign In</h2>
-            <div class="input-info">
+            <div class="input-info valid-border">
                 <input type="text" class="username" placeholder="Username" autocomplete="off">
             </div>
-            <div class="input-info">
+            <div class="input-info valid-border">
                 <input type="password" class="password" placeholder="Password">
             </div>
             <div class="sign-page-button">
@@ -105,12 +105,12 @@
         <div id="sign-up-popup" style="display: none">
             <h2>Sign Up</h2>
             <!--    first name        -->
-            <div class="input-info">
+            <div class="input-info valid-border">
                 <input type="text" class="firstName" placeholder="First Name" autocomplete="off" onblur="checkFirstName()">
             </div>
             <span class="invalid-first-name" style="display: none">The length of first name is at least 2 </span>
             <!--    family name        -->
-            <div class="input-info">
+            <div class="input-info valid-border" >
                 <input type="text" class="familyName" placeholder="Family Name" autocomplete="off" onblur="checkFamilyName()">
             </div>
             <span class="invalid-family-name" style="display: none">The length of family name is at least 2 </span>
@@ -120,13 +120,15 @@
             </div>
             <span class="invalid-email" style="display: none">Invalid Email Address</span>
             <!--   username         -->
-            <div class="input-info">
-                <input type="text" class="username" placeholder="Username" autocomplete="off" onblur="checkUsername()">
+            <div class="input-info valid-border">
+                <input type="text" class="usernameSignUp" placeholder="Username" autocomplete="off" onblur="checkUsername()">
             </div>
+            <span class="invalid-username" style="display: none">The length of username is at least 4</span>
             <!--   password         -->
-            <div class="input-info">
-                <input type="password" class="password" placeholder="Password" onblur="checkPassword()">
+            <div class="input-info valid-border">
+                <input type="password" class="passwordSignUp" placeholder="Password" onblur="checkPassword()">
             </div>
+            <span class="invalid-password" style="display: none">The length of password is at least 6</span>
             <div class="sign-page-button">
                 <a>Sign up</a>
                 <a onclick="closeSignPopUp()">Close</a>
@@ -204,6 +206,9 @@
                 $('#sign-up-popup').hide();
                 $('.shadow').hide();
                 $('.password').val("");
+                $('.passwordSignUp').val("");
+                $('.invalid-password').hide();
+                $('.passwordSignUp').parent().attr('class', "input-info valid-border");
 
             }
             function signUp() {
@@ -228,12 +233,48 @@
                 if (firstName != ""){
                     if (firstName.length < 2) {
                         $('.invalid-first-name').show();
-                        $('.firstName').parent().css('border','2px solid rgba(255,0,0,0.7)');
+                        $('.firstName').parent().attr('class', "input-info invalid-border");
                         return
                     }
                 }
                 $('.invalid-first-name').hide();
-                $('.firstName').parent().css('border','2px solid rgba(255,255,255,0.7)');
+                $('.firstName').parent().attr('class', "input-info valid-border");
+            }
+            function checkFamilyName() {
+                let familyName = $('.familyName').val();
+                if (familyName != ""){
+                    if (familyName.length < 2) {
+                        $('.invalid-family-name').show();
+                        $('.familyName').parent().attr('class', "input-info invalid-border");
+                        return
+                    }
+                }
+                $('.invalid-family-name').hide();
+                $('.familyName').parent().attr('class', "input-info valid-border");
+            }
+            function checkUsername() {
+                let username = $('.usernameSignUp').val();
+                if (username != ""){
+                    if (username.length < 4) {
+                        $('.invalid-username').show();
+                        $('.usernameSignUp').parent().attr('class', "input-info invalid-border");
+                        return
+                    }
+                }
+                $('.invalid-username').hide();
+                $('.usernameSignUp').parent().attr('class', "input-info valid-border");
+            }
+            function checkPassword() {
+                let password = $('.passwordSignUp').val();
+                if (password != ""){
+                    if (password.length < 6) {
+                        $('.invalid-password').show();
+                        $('.passwordSignUp').parent().attr('class', "input-info invalid-border");
+                        return
+                    }
+                }
+                $('.invalid-password').hide();
+                $('.passwordSignUp').parent().attr('class', "input-info valid-border");
             }
 
 

@@ -69,9 +69,11 @@
     box-sizing: border-box;
 }
 /* sign页面图标  */
+.usernameSignUp,
 .username {
      background: url("../image/person.png") no-repeat 310px 5px;
 }
+.passwordSignUp,
 .password {
      background: url("../image/lock.png") no-repeat 310px 5px;
 }
@@ -138,7 +140,10 @@
        color: rgba(255, 255, 255, 0.7);
      }
  .invalid-email,
- .invalid-first-name{
+ .invalid-first-name,
+ .invalid-family-name,
+ .invalid-username,
+ .invalid-password {
     display: block;
     height:36px;
     margin: -30px 0 -36px 73px;
