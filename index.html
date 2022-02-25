@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/sign-page.css">
         <link rel="stylesheet" href="./css/animate.css">
+        <link rel="stylesheet" href="./css/button.css">
 <!--        <link rel="stylesheet" href="./antd/antd.min.css">-->
     </head>
 
@@ -26,9 +27,10 @@
                 <a id="sign-in" onclick="signIn()">Sign in</a>
             </div>
             <div class="navigation-bar">
-                <a href="http://www.baidu.com">About us</a>
+                <a href="#about-background">About us</a>
             </div>
         </header>
+
         <!-- Swiper -->
         <div class="swiper-container swiper-container-horizontal">
             <div class="swiper-wrapper">
@@ -60,14 +62,14 @@
                 <div class="swiper-slide slide-4" data-swiper-slide-index="3">
                     <div class="whiteTxt">
                         <span class="txt">Enjoy your travel
-                            <br>with the most affordable price.</span></div>
+                            <br>with the most affordable price.
+                        </span>
+                    </div>
                     <div class="full preload middle">
                         <img data-src="./image/04.jpg" class="swiper-lazy">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                     </div>
                 </div>
-
-
             </div>
             <div class="swiper-pagination swiper-pagination-bullets">
                 <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
@@ -80,28 +82,24 @@
             <div class="swiper-button-next swiper-button-white" tabindex="0" role="button" aria-label="Next slide"></div>
             <!--右箭头-->
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-        </div>
-        <div class="popBox">
-            <div class="pb">
-                <span class="clousx"></span>
-                <div class="p-box"></div>
+            <div class="popBox">
+                <div class="pb">
+                    <span class="clousx"></span>
+                    <div class="p-box"></div>
+                </div>
             </div>
         </div>
-        <!--sign in 界面-->
-        <div id="sign-in-popup" style="display: none">
-            <h2>Sign In</h2>
-            <div class="input-info valid-border">
-                <input type="text" class="username" placeholder="Username" autocomplete="off">
-            </div>
-            <div class="input-info valid-border">
-                <input type="password" class="password" placeholder="Password">
-            </div>
-            <div class="sign-page-button">
-                <a>Sign in</a>
-                <a onclick="closeSignPopUp()">Close</a>
-            </div>
 
+        <!--  prepare for my flight button     -->
+        <div class="prepare-flight-button">
+                prepare-flight-button
+            <img src="./image/aboutus.png" alt="" onclick="clickFlightButton()">
         </div>
+        <!--    select departure and destination    -->
+        <div class="configure-flight" style="display: none">
+            <div>123123</div>
+        </div>
+
         <!--sign up 界面-->
         <div id="sign-up-popup" style="display: none">
             <h2>Sign Up</h2>
@@ -132,32 +130,69 @@
             <span class="invalid-password" style="display: none">The length of password is at least 6</span>
             <div class="sign-page-button">
                 <a>REGISTER</a>
+                <a onclick="closePopUp()">Close</a>
+            </div>
+        </div>
+
+        <!--sign in 界面-->
+        <div id="sign-in-popup" style="display: none">
+            <h2>Sign In</h2>
+            <div class="input-info valid-border">
+                <input type="text" class="username" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="input-info valid-border">
+                <input type="password" class="password" placeholder="Password">
+            </div>
+            <div class="sign-page-button">
+                <a>Sign in</a>
                 <a onclick="closeSignPopUp()">Close</a>
             </div>
         </div>
+
         <!--遮罩层-->
-        <div class="shadow" onclick="closeSignPopUp()"></div>
+        <div class="shadow" onclick="closePopUp()"></div>
 
-        <div id="abc">
-            <div style="visibility: visible;-webkit-animation-duration: 1.75s; -moz-animation-duration: 1.75s;
-            animation-duration: 1.75s;-webkit-animation-delay: 0.50s; -moz-animation-delay: 0.50s; animation-delay: 0.50s;"
-                        class="stat wow fadeInUp animated animated">
-                        <div class="icon-top green-text">
-                            <i class="icon-man-people-streamline-user"></i>
-                        </div>
-                        <div class="stat-text">
-                            <h3 class="white-text green-border-bottom">1588</h3>
-                            <h6>访问</h6>
-                        </div>
+
+
+
+
+
+
+
+
+        <div id="about-background" class="wow lazy-loading animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+            <div class="about-us fadeInLeft animated wow" >
+            <!--    about us    -->
+             <div>
+                 <img class="about-us-img" src="image/aboutus.png" alt="">
+             </div>
+                <div class="about-us-content">
+                    <h2>Who are we?</h2>
+                    <br>
+                    <p>We are your custom airfare price pushing artifact.</p>
+                    <br>
+                    <p>We are small and compact website, please don't underestimate us, we can guarantee accuracy and timeliness in this matter of your airfare push.</p>
+                    <br>
+                    <p>So that you can get the information in the first place in order to arrange your schedule.</p>
+                    <br>
+                    <p>At present, this website only has access to the airfare monitoring function, please look forward to more functions!</p>
+
+                </div>
+
+
             </div>
-
+            <div class="boarding-img fadeInRightBig animated wow">
+                    <img src="image/boarding-pass.png" alt="">
+            </div>
         </div>
+
         <footer>your footer</footer>
 
 
         <!-- Swiper JS -->
         <script src="./js/jquery.min.js"></script>
         <script src="./js/swiper.min.js"></script>
+        <script src="./js/jquery_004.js"></script>
         <!-- Initialize Swiper -->
         <script>
         var swiper = new Swiper('.swiper-container', {
@@ -212,21 +247,31 @@
             function signIn() {
                 $('#sign-in-popup').show();
                 $('.shadow').show();
-            }
-            function closeSignPopUp() {
-                $('#sign-in-popup').hide();
                 $('#sign-up-popup').hide();
-                $('.shadow').hide();
-                $('.password').val("");
-                $('.passwordSignUp').val("");
-                $('.invalid-password').hide();
-                $('.passwordSignUp').parent().attr('class', "input-info valid-border");
-
+                document.body.parentNode.style.overflow ="hidden";//隐藏且禁用横向纵向两个滚动条
             }
             function signUp() {
                 $('#sign-up-popup').show();
                 $('.shadow').show();
+                $('#sign-in-popup').hide();
+                document.body.parentNode.style.overflow ="hidden";//隐藏且禁用横向纵向两个滚动条
+
             }
+            function closePopUp() {
+                // hide the content of signIn/ signUp popup
+                $('#sign-in-popup').hide();
+                $('#sign-up-popup').hide();
+                // hide the shadow
+                $('.shadow').hide();
+                // clear the value of password
+                $('.password').val("");
+                $('.passwordSignUp').val("");
+                $('.invalid-password').hide();
+                $('.passwordSignUp').parent().attr('class', "input-info valid-border");
+                document.body.parentNode.style.overflow ="auto";
+
+            }
+
             function checkEmail() {
                 let emailAdd = $('.emailAddress').val();
                 if (emailAdd != ""){
@@ -288,6 +333,13 @@
                 $('.invalid-password').hide();
                 $('.passwordSignUp').parent().attr('class', "input-info valid-border");
             }
+            function clickFlightButton() {
+                $('.prepare-flight-button').hide();
+                $('.configure-flight').show();
+                $('.shadow').show();
+            }
+
+
 
 
 

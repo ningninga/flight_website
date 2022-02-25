@@ -1,0 +1,21 @@
+.prepare-flight-button {
+    border: 1px solid black ;
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    z-index: 1000;
+    left: 50%;
+	top: 70%;
+    margin-left: -150px;
+}
+.configure-flight {
+    height: 100px;
+    width: 300px;
+    border: 1px solid black;
+    z-index: 1001;
+    left: 50%;
+	top: 50%;
+    margin-left: -150px;
+    position: absolute;
+    background-color: #bae7ff;
+}
