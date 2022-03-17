@@ -270,14 +270,15 @@ div.navigation-bar a {
 	top: 70px;
 	left: 70px;
 }
-.lazy-loading {
-	visibility: visible;
+[data-animation]{
+	visibility: hidden;
+	animation-duration:1.5s;
+	opacity: 0;
+	animation-fill-mode:forwards;
 	-webkit-animation-duration: 1.75s;
 	-moz-animation-duration: 1.75s;
-	animation-duration: 1.75s;
 	-webkit-animation-delay: 0.50s;
 	-moz-animation-delay: 0.50s;
-	animation-delay: 0.50s;
 }
 .about-us-img {
 	margin-top: 25px;
@@ -317,3 +318,4 @@ div.navigation-bar a {
     opacity:0.6;
     display:none;
 }
+
